@@ -2,6 +2,15 @@
 
 The widespread use of React on large websites shows that it is stable enough to use at scale. React is ready.
 
+## DevOps
+
+- nvm
+- node and npm
+- VS Code
+- react , react-dom
+- webpack 5
+
+
 ## Installing Node.js and NPM
 
 When working with Node and React, you will need to use the command line. On the Mac, this is called the Terminal. On a PC,
