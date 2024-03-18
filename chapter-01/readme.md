@@ -4,11 +4,12 @@ The widespread use of React on large websites shows that it is stable enough to 
 
 ## DevOps
 
-- nvm
-- node and npm
-- VS Code
-- react , react-dom
-- webpack 5
+- Windows 10 Pro
+- nvm for windows v1.1.10
+- node v20.10.0 and npm v10.2.3
+- VS Code @latest
+- react v18.2.0 , react-dom v18.2.0 , create-react-app v5.0.1
+- webpack v5.90.3 , webpack-cli v5.1.4
 
 
 ## Installing Node.js and NPM
