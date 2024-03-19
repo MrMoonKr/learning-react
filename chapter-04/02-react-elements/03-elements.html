@@ -12,8 +12,9 @@
     <div id="react-container"></div>
 
     <!-- React Library & React DOM-->
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- https://unpkg.com/react/ -->
+    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
 
     <script>
 
@@ -38,7 +39,11 @@
             )
         )
 
-        ReactDOM.render( dish, document.getElementById( 'react-container' ) )
+        // ReactDOM.render( dish, document.getElementById( 'react-container' ) )
+
+        const container = document.getElementById( 'react-container' ) ;
+        const root = ReactDOM.createRoot( container ) ;
+        root.render( dish ) ;
 
         console.log( 'dish element', dish )
 

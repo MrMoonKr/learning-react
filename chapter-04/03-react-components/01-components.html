@@ -11,8 +11,10 @@
     <div id="react-container"></div>
 
     <!-- React Library & React DOM-->
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- https://unpkg.com/react/ -->
+    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+
 
     <script>
         function IngredientsList() {
@@ -31,10 +33,15 @@
             );
         }
 
-        ReactDOM.render(
-            React.createElement( IngredientsList, null, null ),
-            document.getElementById( "root" )
-        );
+        // ReactDOM.render(
+        //     React.createElement( IngredientsList, null, null ),
+        //     document.getElementById( "root" )
+        // );
+
+        const container = document.getElementById( 'react-container' ) ;
+        const root = ReactDOM.createRoot( container ) ;
+        root.render( React.createElement( IngredientsList, null, null ) ) ;
+        
     </script>
 </body>
 
