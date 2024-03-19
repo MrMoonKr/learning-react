@@ -11,6 +11,32 @@ The widespread use of React on large websites shows that it is stable enough to 
 - react v18.2.0 , react-dom v18.2.0 , create-react-app v5.0.1
 - webpack v5.90.3 , webpack-cli v5.1.4
 
+## 함수형 컴포넌트에 JSDoc 하는법
+
+- 인텔리 센스 동작을 위해 다음과 같이 주석을 하세요.
+```
+import React from 'react';
+
+/**
+ * React 함수형 컴포넌트
+ * @param {Object} props - 컴포넌트에 전달되는 프로퍼티 객체
+ * @param {string} props.name - 이름
+ * @param {number} props.age - 나이
+ * @returns {JSX.Element} - 렌더링할 JSX 요소
+ */
+function MyComponent({ name, age }) {
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <p>Age: {age}</p>
+    </div>
+  );
+}
+
+export default MyComponent;
+
+```
+
 
 ## Installing Node.js and NPM
 
