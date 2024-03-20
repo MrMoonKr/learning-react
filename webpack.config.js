@@ -13,7 +13,7 @@ const CHAPTER_LIST = [
     //'ch03' ,
     //'ch04' ,
     'ch05' ,
-    //'ch06' ,
+    'ch06' ,
     //'ch07' ,
     //'ch08' ,
 ] ;
