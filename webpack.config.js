@@ -14,8 +14,13 @@ const CHAPTER_LIST = [
     //'ch04' ,
     'ch05' ,
     'ch06' ,
-    //'ch07' ,
-    //'ch08' ,
+    'ch07' ,
+    'ch08' ,
+    //'ch09' ,
+    //'ch10' ,
+    'ch11' ,
+    //'ch12' ,
+
 ] ;
 const HTML_TEMPLATE = './src/template.html' ;
 
