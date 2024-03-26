@@ -2,23 +2,6 @@ import React, { useCallback, useDebugValue, useEffect, useMemo } from 'react';
 import { v4 } from 'uuid';
 
 
-export const useInput = ( initialValue ) => {
-
-    const [ value, setValue ] = React.useState( initialValue ) ;
-    useDebugValue( value ) ;
-
-    const handleChange = ( e ) => setValue( e.target.value ) ;
-
-    return [
-        { 
-            value,
-            onChange: handleChange,
-            setValue
-        }
-    ]
-
-}
-
 const ColorContext = React.createContext() ;
 
 export const useColors = () => {

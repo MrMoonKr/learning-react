@@ -1,10 +1,10 @@
 import React from 'react';
-import { useColor } from './';
+import { useColors } from './ColorProvider';
 import Color from './Color';
 
 function ColorList() {
 
-    const { colors } = useColor() ;
+    const { colors } = useColors() ;
 
     return (
         <div className='color-list'>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { FaTrash } from "react-icons/fa";
 import StarRating from "./StarRating";
-import { useColors } from "./";
+import { useColors } from "./ColorProvider";
 
 
 const Trash = memo( FaTrash ) ;
@@ -35,6 +35,6 @@ export function Color( { id, title, color, rating=0 } ) {
 export default memo( Color, ( prevProps, nextProps ) => {
 
     console.log( prevProps.rating, nextProps.rating ) ;
-    
+
     return prevProps.id === nextProps.id ;
  } ) ;

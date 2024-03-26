@@ -1,15 +1,27 @@
 import React from 'react';
 
-import { useInput, useColors } from "./" ;
+import { useColors } from "./ColorProvider" ;
 
+
+export const useInput = ( initialValue ) => {
+
+    const [ value, setValue ] = React.useState( initialValue ) ;
+
+    return [
+        { value, onChange: ( e ) => setValue( e.target.value ) },
+        () => setValue( initialValue )
+    ] ;
+}
 
 function AddColorForm() {
 
     const { titleProps, resetTitle } = useInput( "" ) ;
     const { colorProps, resetColor } = useInput( "#000000" ) ;
+    
     const { addColor } = useColors() ;
 
     const handleSubmit = ( e ) => {
+
         e.preventDefault() ;
 
         addColor( titleProps.value, colorProps.value ) ;
