@@ -1,8 +1,11 @@
 'use strict';
 
 // Do this as the first thing so that any code reading it knows the right env.
-process.env.BABEL_ENV = 'development';
-process.env.NODE_ENV = 'development';
+/**
+ * @type {string} Set the NODE_ENV to 'development'
+ */
+process.env.BABEL_ENV   = 'development';
+process.env.NODE_ENV    = 'development';
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
@@ -14,31 +17,29 @@ process.on( 'unhandledRejection', err => {
 // Ensure environment variables are read.
 require( '../config/env' );
 
-const fs = require( 'fs' );
-const chalk = require( 'react-dev-utils/chalk' );
-const webpack = require( 'webpack' );
-const WebpackDevServer = require( 'webpack-dev-server' );
-const clearConsole = require( 'react-dev-utils/clearConsole' );
-const checkRequiredFiles = require( 'react-dev-utils/checkRequiredFiles' );
+const fs                    = require( 'fs' );
+const chalk                 = require( 'react-dev-utils/chalk' );
+const webpack               = require( 'webpack' );
+const WebpackDevServer      = require( 'webpack-dev-server' );
+const clearConsole          = require( 'react-dev-utils/clearConsole' );
+const checkRequiredFiles    = require( 'react-dev-utils/checkRequiredFiles' );
 const {
     choosePort,
     createCompiler,
     prepareProxy,
     prepareUrls,
 } = require( 'react-dev-utils/WebpackDevServerUtils' );
-const openBrowser = require( 'react-dev-utils/openBrowser' );
-const semver = require( 'semver' );
-const paths = require( '../config/paths' );
-const configFactory = require( '../config/webpack.config' );
+const openBrowser           = require( 'react-dev-utils/openBrowser' );
+const semver                = require( 'semver' );
+const paths                 = require( '../config/paths' );
+const configFactory         = require( '../config/webpack.config' );
 const createDevServerConfig = require( '../config/webpackDevServer.config' );
-const getClientEnvironment = require( '../config/env' );
-const react = require( require.resolve( 'react', {
-    paths: [ paths.appPath ]
-} ) );
+const getClientEnvironment  = require( '../config/env' );
+const react                 = require( require.resolve( 'react', { paths: [ paths.appPath ] } ) );
 
-const env = getClientEnvironment( paths.publicUrlOrPath.slice( 0, -1 ) );
-const useYarn = fs.existsSync( paths.yarnLockFile );
-const isInteractive = process.stdout.isTTY;
+const env                   = getClientEnvironment( paths.publicUrlOrPath.slice( 0, -1 ) );
+const useYarn               = fs.existsSync( paths.yarnLockFile );
+const isInteractive         = process.stdout.isTTY;
 
 // Warn and crash if required files are missing
 if ( !checkRequiredFiles( [ paths.appHtml, paths.appIndexJs ] ) ) {
@@ -83,12 +84,12 @@ checkBrowsers( paths.appPath, isInteractive )
             return;
         }
 
-        const config = configFactory( 'development' );
-        const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
-        const appName = require( paths.appPackageJson ).name;
+        const config    = configFactory( 'development' );
+        const protocol  = process.env.HTTPS === 'true' ? 'https' : 'http';
+        const appName   = require( paths.appPackageJson ).name;
 
         const useTypeScript = fs.existsSync( paths.appTsConfig );
-        const urls = prepareUrls(
+        const urls      = prepareUrls(
             protocol,
             HOST,
             port,
