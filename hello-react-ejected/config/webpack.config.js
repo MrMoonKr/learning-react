@@ -119,10 +119,7 @@ module.exports = function ( webpackEnv ) {
                 // css is located in `static/css`, use '../../' to locate index.html folder
                 // in production `paths.publicUrlOrPath` can be a relative path
                 options: paths.publicUrlOrPath.startsWith( '.' ) ?
-                    {
-                        publicPath: '../../'
-                    } :
-                    {},
+                    { publicPath: '../../' } : {},
             },
             {
                 loader: require.resolve( 'css-loader' ),
@@ -192,12 +189,27 @@ module.exports = function ( webpackEnv ) {
     };
 
     return {
+        /**
+         * 'web' | 'node' | 'browseslist'
+         */
         target: [ 'browserslist' ],
-        // Webpack noise constrained to errors and warnings
+
+        /**
+         * Webpack noise constrained to errors and warnings
+         */
         stats: 'errors-warnings',
+
+        /**
+         * 'production' | 'development' | 'none'
+         */
         mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
+
         // Stop compilation early in production
         bail: isEnvProduction,
+
+        /**
+         * source-map | cheap-module-source-map
+         */
         devtool: isEnvProduction ?
             shouldUseSourceMap ? 'source-map' : false :
             isEnvDevelopment && 'cheap-module-source-map',
@@ -207,6 +219,10 @@ module.exports = function ( webpackEnv ) {
          * This means they will be the "root" imports that are included in JS bundle.
          */
         entry: paths.appIndexJs,
+
+        /**
+         * final destination of the entry
+         */
         output: {
             // The build folder.
             path: paths.appBuild,
@@ -228,12 +244,8 @@ module.exports = function ( webpackEnv ) {
             publicPath: paths.publicUrlOrPath,
             // Point sourcemap entries to original disk location (format as URL on Windows)
             devtoolModuleFilenameTemplate: isEnvProduction ?
-                info =>
-                path
-                .relative( paths.appSrc, info.absoluteResourcePath )
-                .replace( /\\/g, '/' ) :
-                isEnvDevelopment &&
-                ( info => path.resolve( info.absoluteResourcePath ).replace( /\\/g, '/' ) ),
+                info => path.relative( paths.appSrc, info.absoluteResourcePath ).replace( /\\/g, '/' ) :
+                isEnvDevelopment && ( info => path.resolve( info.absoluteResourcePath ).replace( /\\/g, '/' ) ),
         },
         cache: {
             type: 'filesystem',
@@ -482,9 +494,7 @@ module.exports = function ( webpackEnv ) {
                             exclude: cssModuleRegex,
                             use: getStyleLoaders( {
                                 importLoaders: 1,
-                                sourceMap: isEnvProduction ?
-                                    shouldUseSourceMap :
-                                    isEnvDevelopment,
+                                sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
                                 modules: {
                                     mode: 'icss',
                                 },
@@ -501,9 +511,7 @@ module.exports = function ( webpackEnv ) {
                             test: cssModuleRegex,
                             use: getStyleLoaders( {
                                 importLoaders: 1,
-                                sourceMap: isEnvProduction ?
-                                    shouldUseSourceMap :
-                                    isEnvDevelopment,
+                                sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
                                 modules: {
                                     mode: 'local',
                                     getLocalIdent: getCSSModuleLocalIdent,
@@ -518,9 +526,7 @@ module.exports = function ( webpackEnv ) {
                             exclude: sassModuleRegex,
                             use: getStyleLoaders( {
                                     importLoaders: 3,
-                                    sourceMap: isEnvProduction ?
-                                        shouldUseSourceMap :
-                                        isEnvDevelopment,
+                                    sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
                                     modules: {
                                         mode: 'icss',
                                     },
@@ -539,9 +545,7 @@ module.exports = function ( webpackEnv ) {
                             test: sassModuleRegex,
                             use: getStyleLoaders( {
                                     importLoaders: 3,
-                                    sourceMap: isEnvProduction ?
-                                        shouldUseSourceMap :
-                                        isEnvDevelopment,
+                                    sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
                                     modules: {
                                         mode: 'local',
                                         getLocalIdent: getCSSModuleLocalIdent,
