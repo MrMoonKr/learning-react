@@ -6,7 +6,15 @@ const getPublicUrlOrPath    = require( 'react-dev-utils/getPublicUrlOrPath' );
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
+/**
+ * absolute path to the app ( the project root )
+ */
 const appDirectory          = fs.realpathSync( process.cwd() );
+/**
+ * get an absolute path
+ * @param {string} relativePath 
+ * @returns 
+ */
 const resolveApp            = relativePath => path.resolve( appDirectory, relativePath );
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
@@ -70,18 +78,36 @@ module.exports = {
      * '.' by default
      */
     appPath: resolveApp( '.' ),
+    /**
+     * 'build' by default
+     */
     appBuild: resolveApp( buildPath ),
     appPublic: resolveApp( 'public' ),
+    /**
+     * 'public/index.html' by default
+     */
     appHtml: resolveApp( 'public/index.html' ),
+    /**
+     * 'src/index' by default
+     */
     appIndexJs: resolveModule( resolveApp, 'src/index' ),
     appPackageJson: resolveApp( 'package.json' ),
+    /**
+     * 'src' by default
+     */
     appSrc: resolveApp( 'src' ),
     appTsConfig: resolveApp( 'tsconfig.json' ),
     appJsConfig: resolveApp( 'jsconfig.json' ),
     yarnLockFile: resolveApp( 'yarn.lock' ),
     testsSetup: resolveModule( resolveApp, 'src/setupTests' ),
     proxySetup: resolveApp( 'src/setupProxy.js' ),
+    /**
+     * 'node_modules' by default
+     */
     appNodeModules: resolveApp( 'node_modules' ),
+    /**
+     * 'node_modules/.cache' by default
+     */
     appWebpackCache: resolveApp( 'node_modules/.cache' ),
     appTsBuildInfoFile: resolveApp( 'node_modules/.cache/tsconfig.tsbuildinfo' ),
     swSrc: resolveModule( resolveApp, 'src/service-worker' ),
