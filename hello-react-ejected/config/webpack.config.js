@@ -631,6 +631,7 @@ module.exports = function ( webpackEnv ) {
             // See https://github.com/facebook/create-react-app/issues/240
             isEnvDevelopment && 
             new CaseSensitivePathsPlugin(),
+            
             isEnvProduction &&
             new MiniCssExtractPlugin( {
                 // Options similar to the same options in webpackOptions.output
